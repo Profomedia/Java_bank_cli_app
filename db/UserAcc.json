@@ -1,0 +1,17 @@
+{
+    "omark": {
+        "ID": "cc1e6b26-1831-44ac-adc6-f8eedb7cd568",
+        "username": "omark",
+        "firstName": "Mark",
+        "lastName": "Owuor",
+        "email": "mark@gmail.com",
+        "age": 27,
+        "salutation": "MR",
+        "gender": "MALE",
+        "job": "Java developer",
+        "netSalary": 50000.0,
+        "grossSalary": 49020.0,
+        "tax": 8.3,
+        "password": "sdfs365sdf"
+    }
+}
