@@ -81,12 +81,12 @@ public class User{
     }
 
     // get email
-    public Email getEmail(){
+    public String getEmail(){
         return this.email;
     }
 
     // set email
-    public void setEmail(Email email){
+    public void setEmail(String email){
         this.email = email;
     }
     // set age
