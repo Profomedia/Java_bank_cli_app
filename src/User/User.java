@@ -19,7 +19,6 @@ public class User{
     double tax;
     String password;
 
-
     // constructor
     public User(String username, String firstName, String lastName,String email, int age, Salutation salutation,Gender gender, String job, double netSalary, double grossSalary, double tax, String password) {
         this.ID = getID();
@@ -30,7 +29,7 @@ public class User{
         this.age = age;
         this.salutation = salutation;
         this.gender = gender;
-
+        
         this.job = job;
         this.netSalary = netSalary;
         this.grossSalary = grossSalary;
