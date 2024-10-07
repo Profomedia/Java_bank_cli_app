@@ -5,6 +5,7 @@ import User.User;
 import tools.Capitalize;
 import tools.CheckLimits;
 import tools.Gender;
+import tools.Username;
 import tools.Welcome;
 import tools.validators.Email;
 import tools.validators.Salutation;
@@ -15,6 +16,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         String firstName = "";
+
         // email
         Email email = new Email("mark@gmail.com");
 
@@ -30,34 +32,44 @@ public class App {
 
         boolean g = true;
         String input;
-        do {
-            Welcome.introduce_bank();
-            Scanner sc = new Scanner(System.in);
-            input = sc.nextLine();
 
-            switch (input) {
-                case "1":
-                    System.out.println("login");
-                    System.out.println(user.toString());
-                    g = false;
-                    break;
+        String nm = "mark";
+        double num = Math.random() * nm.length();
+        String converted = num + "";
+        System.out.println(converted.substring(2,5));
 
-                case "2":
-                    System.out.println("new acc");
-                    // createAccount(user);
-                    System.out.println(createAccount(user));
-                    g = false;
-                    break;
+        Username usn = new Username("Mark");
+        System.out.println(usn.generateUser()); 
 
-                case "x":
-                    System.out.println("exit");
-                    g = false;
-                    System.exit(0);
 
-                default:
-                    System.out.println("no such thing");
-            }
-        } while (g);
+        // do {
+        // Welcome.introduce_bank();
+        // Scanner sc = new Scanner(System.in);
+        // input = sc.nextLine();
+
+        // switch (input) {
+        // case "1":
+        // System.out.println("login");
+        // System.out.println(user.toString());
+        // g = false;
+        // break;
+
+        // case "2":
+        // System.out.println("new acc");
+        // // createAccount(user);
+        // System.out.println(createAccount(user));
+        // g = false;
+        // break;
+
+        // case "x":
+        // System.out.println("exit");
+        // g = false;
+        // System.exit(0);
+
+        // default:
+        // System.out.println("no such thing");
+        // }
+        // } while (g);
     }
 
     public static User createAccount(User user) {
@@ -65,15 +77,14 @@ public class App {
         String firstName;
         String lastName;
         String email;
-        int age;
         Salutation salutation;
         Gender gender;
         String job;
+        String password;
+        int age;
         double netSalary;
         double grossSalary;
         double tax;
-        String password;
-
 
         System.out.println("CREATE ACCOUNT");
 
@@ -81,7 +92,7 @@ public class App {
         System.out.print("Enter your first name: ");
         Scanner fN = new Scanner(System.in);
         firstName = fN.nextLine();
-    
+
         user.setFirstName(Capitalize.capitalize_String(CheckLimits.limits(firstName)));
 
         // enter last name
@@ -91,17 +102,17 @@ public class App {
         user.setLastName(Capitalize.capitalize_String(CheckLimits.limits(lastName)));
 
         // TODO validate email with regex
-        // enter email 
+        // enter email
         System.out.print("Enter email address: ");
         Scanner address = new Scanner(System.in);
         email = address.nextLine();
         user.setEmail(email);
 
         // enter age
-        System.out.print("Enter age: ");
+        System.out.println("Enter age: ");
         Scanner inpAge = new Scanner(System.in);
         age = inpAge.nextInt();
         return user;
     }
-    
+
 }
