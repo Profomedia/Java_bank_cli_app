@@ -2,6 +2,7 @@ package User;
 import java.util.UUID;
 
 import tools.Gender;
+import tools.Username;
 import tools.validators.*;
 
 public class User{
@@ -20,9 +21,10 @@ public class User{
     String password;
 
     // constructor
-    public User(String username, String firstName, String lastName,String email, int age, Salutation salutation,Gender gender, String job, double netSalary, double grossSalary, double tax, String password) {
+    public User(String firstName, String lastName,String email, int age, Salutation salutation,Gender gender, String job, double netSalary, double grossSalary, double tax, String password) {
+        Username usernameGen = new Username(firstName);
         this.ID = getID();
-        this.username = username;
+        this.username = usernameGen.generateUser();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
