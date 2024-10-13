@@ -22,13 +22,90 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) throws Exception {
+        boolean g = true;
+        String input;
+
+        do {
+            Welcome.introduce_bank();
+            Scanner sc = new Scanner(System.in);
+            input = sc.nextLine();
+
+            switch (input) {
+                case "1":
+                    System.out.println("login");
+                    g = false;
+                    break;
+
+                case "2":
+                    System.out.println("new acc");
+                    // createAccount(user);
+                    createAccount();
+                    g = false;
+                    break;
+
+                case "x":
+                    System.out.println("exit");
+                    g = false;
+                    System.exit(0);
+
+                default:
+                    System.out.println("no such thing");
+            }
+        } while (g);
+    }
+
+    public static void createAccount() {
         String firstName = "";
+        String lastName = "";
+        String email = "";
+        Salutation salutation = Salutation.NONE;
+        Gender gender = Gender.NONE;
+        String job = "";
+        String password = "";
+        int age=0;
+        double netSalary=0;
+        double grossSalary=0;
+        double tax=0;
 
+        
+        System.out.println("CREATE ACCOUNT");
+        
+        // enter first name
+        System.out.print("Please enter your first name: ");
+        Scanner fN = new Scanner(System.in);
+        firstName = fN.nextLine();
+
+        
+        //create user object
+        User user = new User(firstName, "", "", 20, Salutation.MR, Gender.MALE, "job", 0, 0, 0,""); 
+
+        user.setFirstName(Capitalize.capitalize_String(CheckLimits.limits(firstName)));
+
+        user.setUsername(user.getFirstName());
+        System.out.println(user.getFirstName()+"line");
+        
+        // enter last name
+        System.out.print("Enter last name: ");
+        Scanner fL = new Scanner(System.in);
+        lastName = fL.nextLine();
+        user.setLastName(Capitalize.capitalize_String(CheckLimits.limits(lastName)));
+        
+
+        // TODO validate email with regex
+        // enter email
+        // System.out.print("Enter email address: ");
+        // Scanner address = new Scanner(System.in);
+        // email = address.nextLine();
+        // user.setEmail(email);
+
+        // enter age
+        // System.out.println("Enter age: ");
+        // Scanner inpAge = new Scanner(System.in);
+        // age = inpAge.nextInt();
+
+        // ===============================================
         // email
-        Email email = new Email("mark@gmail.com");
-
-        User user = new User("Marks", "Onyango", email.getMail(), 27, Salutation.MR, Gender.MALE,
-                "Java developer", 50000, 49020, 8.3, "sdfs365sdf");
+        // Email email = new Email("mark@gmail.com");
 
         // create an array and add the user then convert to json
         ArrayList<User> userArray = new ArrayList<>();
@@ -36,102 +113,9 @@ public class App {
 
         // handle json data
         Json_Handler.jsonHandle(userArray, user);
-
-        // do {
-        // Welcome.introduce_bank();
-        // Scanner sc = new Scanner(System.in);
-        // input = sc.nextLine();
-
-        // switch (input) {
-        // case "1":
-        // System.out.println("login");
-        // System.out.println(user.toString());
-        // g = false;
-        // break;
-
-        // case "2":
-        // System.out.println("new acc");
-        // // createAccount(user);
-        // System.out.println(createAccount(user));
-        // g = false;
-        // break;
-
-        // case "x":
-        // System.out.println("exit");
-        // g = false;
-        // System.exit(0);
-
-        // default:
-        // System.out.println("no such thing");
-        // }
-        // } while (g);
+        // ===============================================
+        System.out.println(userArray);
     }
 
-    public static User createAccount(User user) {
-        String username;
-        String firstName;
-        String lastName;
-        String email;
-        Salutation salutation;
-        Gender gender;
-        String job;
-        String password;
-        int age;
-        double netSalary;
-        double grossSalary;
-        double tax;
-
-        System.out.println("CREATE ACCOUNT");
-
-        // enter first name
-        System.out.print("Enter your first name: ");
-        Scanner fN = new Scanner(System.in);
-        firstName = fN.nextLine();
-
-        user.setFirstName(Capitalize.capitalize_String(CheckLimits.limits(firstName)));
-
-        // enter last name
-        System.out.print("Enter last name: ");
-        Scanner fL = new Scanner(System.in);
-        lastName = fL.nextLine();
-        user.setLastName(Capitalize.capitalize_String(CheckLimits.limits(lastName)));
-
-        // TODO validate email with regex
-        // enter email
-        System.out.print("Enter email address: ");
-        Scanner address = new Scanner(System.in);
-        email = address.nextLine();
-        user.setEmail(email);
-
-        // enter age
-        System.out.println("Enter age: ");
-        Scanner inpAge = new Scanner(System.in);
-        age = inpAge.nextInt();
-        return user;
-    }
-
-    public static void file_manager(String json) {
-        String path = "UserAcc.json";
-        // create file
-        File file = new File(path);
-        try {
-            if (file.createNewFile()) {
-                System.out.println("File created: " + file.getName());
-                System.out.println("File location is: " + file.getAbsolutePath());
-
-                // write to file
-                FileWriter writer = new FileWriter(path, false);
-                writer.write(json);
-                writer.close();
-
-                // read file
-            } else {
-                System.out.println("file already exists");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
+  
 }

@@ -10,6 +10,7 @@ public class CheckLimits {
             System.out.print("Input cannot be empty: ");
             value = scanner.nextLine().trim();
         }
+        
         return value;
     }
 }

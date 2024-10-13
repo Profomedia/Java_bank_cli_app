@@ -1,4 +1,4 @@
 package tools;
 public enum Gender{
-    MALE, FEMALE
+    MALE, FEMALE, NONE
 }

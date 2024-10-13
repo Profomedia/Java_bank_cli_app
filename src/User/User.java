@@ -2,14 +2,13 @@ package User;
 import java.util.UUID;
 
 import tools.Gender;
-import tools.Username;
 import tools.validators.*;
 
 public class User{
-    UUID ID = UUID.randomUUID();
-    String username;
+	UUID ID = UUID.randomUUID();
     String  firstName;
     String  lastName;
+    String username;
     String email;
     int age;
     Salutation salutation;
@@ -18,15 +17,15 @@ public class User{
     double netSalary;
     double grossSalary;
     double tax;
-    String password;
+    String password; 
 
     // constructor
-    public User(String firstName, String lastName,String email, int age, Salutation salutation,Gender gender, String job, double netSalary, double grossSalary, double tax, String password) {
-        Username usernameGen = new Username(firstName);
+    public User(String firstName, String lastName, String email, int age, Salutation salutation,Gender gender, String job, double netSalary, double grossSalary, double tax, String password) {
+    
         this.ID = getID();
-        this.username = usernameGen.generateUser();
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = getUname();
         this.email = email;
         this.age = age;
         this.salutation = salutation;
@@ -44,16 +43,10 @@ public class User{
         return ID;
     }
 
-    // get username
-    public String getUsername(){
-        return this.username;
-    }
+    
 
     // set username
-    public void setUsername(String username){
-        //TODO refine this line more like auto suggesting a username
-        this.username = username; 
-    }
+    
 
     // get firstname
     public String getFirstName(){
@@ -165,12 +158,25 @@ public class User{
         this.password = password;
     }
 
+    public String getUname(){
+        return this.firstName+23;
+    }
+
+    public void setUsername(String s){
+        String rand = Math.random()*s.length()+"";
+
+        username = s.toLowerCase()+rand.substring(2,4);
+
+    }
     @Override
     public String toString() {
         return "User [ID=" + ID + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
                 + ", email=" + email + ", age=" + age + ", salutation=" + salutation + ", gender=" + gender + ", job="
                 + job + ", netSalary=" + netSalary + ", grossSalary=" + grossSalary + ", tax=" + tax + ", password="
                 + password + "]";
+    }
+
+    public class getFirstName {
     }
 
     

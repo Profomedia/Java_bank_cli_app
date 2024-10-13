@@ -1,5 +1,5 @@
 package tools.validators;
 
 public enum Salutation{
-    MR,MS,MRS
+    MR,MS,MRS, NONE
 }
