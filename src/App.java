@@ -10,10 +10,11 @@ import tools.Username;
 import tools.Welcome;
 import tools.filehandler.File_manager;
 import tools.filehandler.Json_Handler;
+import tools.validators.AgeValidator;
 import tools.validators.Email;
 import tools.validators.Salutation;
 
-import java.io.File;
+import java.io.File; 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -77,7 +78,7 @@ public class App {
 
         
         //create user object
-        User user = new User(firstName, "", "", 20, Salutation.MR, Gender.MALE, "job", 0, 0, 0,""); 
+        User user = new User(firstName, "", "", age, Salutation.MR, Gender.MALE, "job", 0, 0, 0,""); 
 
         user.setFirstName(Capitalize.capitalize_String(CheckLimits.limits(firstName)));
 
@@ -99,9 +100,19 @@ public class App {
         // user.setEmail(email);
 
         // enter age
-        // System.out.println("Enter age: ");
-        // Scanner inpAge = new Scanner(System.in);
-        // age = inpAge.nextInt();
+        System.out.print("Enter age: ");
+        
+        while (age <= 0){
+            try{
+                Scanner inpAge = new Scanner(System.in);
+                age = inpAge.nextInt();
+            }catch (InputMismatchException e){
+                System.out.print("wrong input: ");
+            }
+        }
+        
+        user.setAge(AgeValidator.validate(age));
+    
 
         // ===============================================
         // email

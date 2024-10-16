@@ -10,7 +10,7 @@ public class User{
     String  lastName;
     String username;
     String email;
-    int age;
+    int age; 
     Salutation salutation;
     Gender gender;
     String job;
