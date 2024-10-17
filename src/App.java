@@ -55,6 +55,7 @@ public class App {
         } while (g);
     }
 
+    // create account function
     public static void createAccount() {
         String firstName = "";
         String lastName = "";
@@ -83,7 +84,6 @@ public class App {
         user.setFirstName(Capitalize.capitalize_String(CheckLimits.limits(firstName)));
 
         user.setUsername(user.getFirstName());
-        System.out.println(user.getFirstName()+"line");
         
         // enter last name
         System.out.print("Enter last name: ");
@@ -101,17 +101,24 @@ public class App {
 
         // enter age
         System.out.print("Enter age: ");
-        
+        // ===============================================
         while (age <= 0){
+            Scanner inpAge = new Scanner(System.in);
             try{
-                Scanner inpAge = new Scanner(System.in);
                 age = inpAge.nextInt();
+
+                new AgeValidator(age); // accessing the func in a static way
+                while(age <= 0){
+                    age = inpAge.nextInt();
+                }
+                
             }catch (InputMismatchException e){
-                System.out.print("wrong input: ");
+                System.out.print("Age gap should be between 18 - 45: ");
             }
         }
-        
         user.setAge(AgeValidator.validate(age));
+    
+        
     
 
         // ===============================================
@@ -128,5 +135,4 @@ public class App {
         System.out.println(userArray);
     }
 
-  
 }
