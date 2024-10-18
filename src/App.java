@@ -1,23 +1,13 @@
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import User.User;
 import tools.Capitalize;
 import tools.CheckLimits;
 import tools.Gender;
-import tools.Username;
 import tools.Welcome;
-import tools.filehandler.File_manager;
 import tools.filehandler.Json_Handler;
 import tools.validators.AgeValidator;
 import tools.validators.Email;
 import tools.validators.Salutation;
 
-import java.io.File; 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.*;
 
 public class App {
@@ -76,13 +66,10 @@ public class App {
         System.out.print("Please enter your first name: ");
         Scanner fN = new Scanner(System.in);
         firstName = fN.nextLine();
-
-        
+ 
         //create user object
         User user = new User(firstName, "", "", age, Salutation.MR, Gender.MALE, "job", 0, 0, 0,""); 
-
         user.setFirstName(Capitalize.capitalize_String(CheckLimits.limits(firstName)));
-
         user.setUsername(user.getFirstName());
         
         // enter last name
@@ -94,10 +81,14 @@ public class App {
 
         // TODO validate email with regex
         // enter email
-        // System.out.print("Enter email address: ");
-        // Scanner address = new Scanner(System.in);
-        // email = address.nextLine();
-        // user.setEmail(email);
+        System.out.print("Enter email address: ");
+        Scanner address = new Scanner(System.in);
+        
+        // ==============================================
+        
+        // ==============================================
+        email = address.nextLine();
+        user.setEmail(Email.validate(email));
 
         // enter age
         System.out.print("Enter age: ");
@@ -133,6 +124,8 @@ public class App {
         Json_Handler.jsonHandle(userArray, user);
         // ===============================================
         System.out.println(userArray);
+
+        
     }
 
 }

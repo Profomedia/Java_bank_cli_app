@@ -21,7 +21,6 @@ public class User{
 
     // constructor
     public User(String firstName, String lastName, String email, int age, Salutation salutation,Gender gender, String job, double netSalary, double grossSalary, double tax, String password) {
-    
         this.ID = getID();
         this.firstName = firstName;
         this.lastName = lastName;
