@@ -1,0 +1,53 @@
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ 
+Ha HaHa
+
+MetaCharacters (Need to be escaped) :
+.[{()\^$|?*+
+
+profomedia@gmail.com
+mrprofo@gmail.com
+
+321-555-4321        
+124.555.1234        
+123*555*1234
+07-1649-2885
++254-716-49-2685
+800-555-4321        
+900-555-4321        
+
+Mr Profo
+
+ 
+
+regex
+\d\d\d.\d\d\d.\d\d\d 
+\d{2}-\d{4}-\d{4}
+\d{3}[-.]\d{3}[-.]\d{4}
+
+[123][31][-.*]\d{3}[-.*]\d{4}
+[89]00[-.]\d{3}[-.]\d{4}
+
+
+===================================================
+questions
+1 get all texts that starts with a digit
+    ans   ^\d   the inverse will be    ^\d
+
+2\Sgetall.
+lowercase letters
+    ans    [a-z]
+
+3 get all upercase letters
+    ans     [A-Z]
+
+4 get either upper or lowercase letters
+    ans     [a-zA-Z]
+
+4 get either upper or lowercase letters with numerics
+    ans     [a-zA-Z0-9]  the inverse will be  [^a-zA-Z0-9]
+
+4 get either upper or lowercase letters with numerics
+    ans     [a-zA-Z0-9]
+===================================================
