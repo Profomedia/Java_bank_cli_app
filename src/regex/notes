@@ -16,7 +16,7 @@ $   - End of a string
 |       - Either or
 ()      - Group
 
-Quontifiers
+Quantifiers
 *       - 0 or More
 +       - 1 or More
 ?       - 0 or One

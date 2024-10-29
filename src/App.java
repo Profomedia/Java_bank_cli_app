@@ -26,14 +26,12 @@ public class App {
                     System.out.println("login");
                     g = false;
                     break;
-
                 case "2":
                     System.out.println("new acc");
                     // createAccount(user);
                     createAccount();
                     g = false;
                     break;
-
                 case "x":
                     System.out.println("exit");
                     g = false;
@@ -46,6 +44,7 @@ public class App {
     }
 
     // create account function
+    @SuppressWarnings("resource")
     public static void createAccount() {
         String firstName = "";
         String lastName = "";
@@ -66,7 +65,7 @@ public class App {
         System.out.print("Please enter your first name: ");
         Scanner fN = new Scanner(System.in);
         firstName = fN.nextLine();
- 
+
         //create user object
         User user = new User(firstName, "", "", age, Salutation.MR, Gender.MALE, "job", 0, 0, 0,""); 
         user.setFirstName(Capitalize.capitalize_String(CheckLimits.limits(firstName)));
@@ -92,7 +91,7 @@ public class App {
 
         // enter age
         System.out.print("Enter age: ");
-        // ===============================================
+        // ==============================================
         while (age <= 0){
             Scanner inpAge = new Scanner(System.in);
             try{

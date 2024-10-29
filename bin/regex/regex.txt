@@ -6,8 +6,16 @@ Ha HaHa
 MetaCharacters (Need to be escaped) :
 .[{()\^$|?*+
 
-profomedia@gmail.com
-mrprofo@gmail.com
+Cor@gmaiI.com
+CoreyMSchafer@gmaiI.com
+CoreyMSchafer@yahoo.com
+corey.schafer@university.edu
+corey-321-schafer@my-work.net
+
+google.com
+http://coreyms.com
+https://youtube.com
+https://www.nasa.gom
 
 321-555-4321        
 124.555.1234        
@@ -18,6 +26,14 @@ mrprofo@gmail.com
 900-555-4321        
 
 Mr Profo
+Mrs Owuor
+Mr. Mark
+Ms.Mark
+
+cat 
+bat 
+pat
+mat
 
  
 
@@ -29,17 +45,24 @@ regex
 [123][31][-.*]\d{3}[-.*]\d{4}
 [89]00[-.]\d{3}[-.]\d{4}
 
+\w?[a-zA-Z]\s[A-Z]\w*
+
+^\w*[^-+$_.]@[a-zA-Z]+\.\w+
+M(r|s|rs)\.?\s[A-Z]\w*
+
+https?://(www\.)?\w+\.\w+
+https?://(www\.)?(\w+)(\.\w+)   $2$3
+
 
 ===================================================
 questions
 1 get all texts that starts with a digit
     ans   ^\d   the inverse will be    ^\d
 
-2\Sgetall.
-lowercase letters
+2 get all lowercase letters
     ans    [a-z]
 
-3 get all upercase letters
+3 get all uppercase letters
     ans     [A-Z]
 
 4 get either upper or lowercase letters
